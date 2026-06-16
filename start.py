@@ -4,6 +4,11 @@ import aiohttp
 from aiogram import Bot, Dispatcher
 from dotenv import load_dotenv
 from main.hendlers import router as hendlers_router
+from main.hendlers_robotics import router as hendlers_router_robotics
+from main.hendlers_python import router as hendlers_router_python
+from main.my_command import router as my_command_router
+from main.play1 import router as play1_router
+from main.play2 import router as play2_router
 from database import init_answer, init_play  
 
 async def pinger():
@@ -22,7 +27,12 @@ load_dotenv()
 token = os.getenv("TOKEN")
 
 dp = Dispatcher()
-dp.include_router(hendlers_router)
+dp.include_router(hendlers_router, 
+                  hendlers_router_robotics, 
+                  hendlers_router_python, 
+                  my_command_router, 
+                  play1_router, 
+                  play2_router)
 
 async def main():
     bot = Bot(token)
