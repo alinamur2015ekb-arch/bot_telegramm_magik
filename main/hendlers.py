@@ -104,43 +104,43 @@ async def e(message: Message, state: FSMContext):
 async def two(callback: CallbackQuery, state: FSMContext):
     await callback.message.answer("Викторина по математике уровень средний")
     await callback.message.answer("<b>1 вопрос</b> \n Сократи дробь 6/30 до самой маленькой возможной дроби", parse_mode="HTML")
-    await state.set_state(math2.a1)
+    await state.set_state(math2.a)
     await callback.answer()
 
 
-@router.message(math2.a1)
+@router.message(math2.a)
 async def a1(message: Message, state: FSMContext):
     await state.set_data({"a1": message.text})
     
     await message.answer("<b>2 вопрос</b> Запиши число 5 дробью с числителем 10", parse_mode="HTML")
-    await state.set_state(math2.b1)
+    await state.set_state(math2.b)
 
 
-@router.message(math2.b1)
+@router.message(math2.b)
 async def b1(message: Message, state: FSMContext):
     await state.set_data({"b1": message.text})
     
     await message.answer("<b>3 вопрос</b> 2/3 + 3/3", parse_mode="HTML")
-    await state.set_state(math2.c1)
+    await state.set_state(math2.c)
 
 
-@router.message(math2.c1)
+@router.message(math2.c)
 async def c1(message: Message, state: FSMContext):
     await state.set_data({"c1": message.text})
     
     await message.answer("<b>4 вопрос</b> 10/4 - 5/4", parse_mode="HTML")
-    await state.set_state(math2.d1)
+    await state.set_state(math2.d)
 
 
-@router.message(math2.d1)
+@router.message(math2.d)
 async def d1(message: Message, state: FSMContext):
     await state.set_data({"d1": message.text})
     
     await message.answer("<b>5 вопрос</b> 2/2 * 3/2")
-    await state.set_state(math2.e1)
+    await state.set_state(math2.e)
 
 
-@router.message(math2.e1)
+@router.message(math2.e)
 async def e1(message: Message, state: FSMContext):
     await state.set_data({"e1": message.text})
     
