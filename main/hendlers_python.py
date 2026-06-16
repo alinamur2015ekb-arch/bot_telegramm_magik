@@ -66,7 +66,8 @@ async def d3(message:Message, state: FSMContext):
                parse_mode="HTML")
 
     await create_answer(
-        answer_python1 = count_python1
+        answer_python1 = count_python1, 
+        message.from_user.id
     )
     await state.clear()
 
@@ -122,7 +123,8 @@ async def d4(message:Message, state: FSMContext):
                parse_mode="HTML")
 
     await create_answer(
-        answer_python2 = count_python2
+        answer_python2 = count_python2, 
+        message.from_user.id
     )
     await state.clear()
 
@@ -180,6 +182,7 @@ async def d5(message:Message, state: FSMContext):
 
 
     await create_answer(
-        answer_python3 = count_python3
+        answer_python3 = count_python3, 
+        message.from_user.id
     )
     await state.clear()
