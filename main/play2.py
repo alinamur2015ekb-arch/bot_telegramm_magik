@@ -1,8 +1,9 @@
 import random
 from aiogram import Router, F
-from aiogram.types import Message, CallbackQuery, FSInputFile, ParseMode
+from aiogram.types import Message, CallbackQuery, FSInputFile
 from aiogram.filters import Command
 from .keyboard import quest, choice, a, b
+from aiogram.enums import ParseMode
 
 router = Router()
 
