@@ -63,7 +63,7 @@ async def c(message: Message, state: FSMContext):
 async def d(message: Message, state: FSMContext):
     await state.set_data({"d": message.text})
     
-    await message.answer("<b>5 вопрос</b> 52/4")
+    await message.answer("<b>5 вопрос</b> 52/4", parse_mode="HTML")
     await state.set_state(math1.e)
 
 
@@ -136,7 +136,7 @@ async def c1(message: Message, state: FSMContext):
 async def d1(message: Message, state: FSMContext):
     await state.set_data({"d1": message.text})
     
-    await message.answer("<b>5 вопрос</b> 2/2 * 3/2")
+    await message.answer("<b>5 вопрос</b> 2/2 * 3/2", parse_mode="HTML")
     await state.set_state(math2.e)
 
 
@@ -207,7 +207,7 @@ async def c2(message: Message, state: FSMContext):
 async def d2(message: Message, state: FSMContext):
     await state.set_data({"d2": message.text})
     
-    await message.answer("<b>5 вопрос</b> log(2) = 8")
+    await message.answer("<b>5 вопрос</b> log(2) = 8", parse_mode="HTML")
     await state.set_state(math3.e)
 
 
