@@ -76,7 +76,7 @@ async def d3(message:Message, state: FSMContext):
 async def two_python(callback: CallbackQuery, state: FSMContext):
     await callback.message.answer("Python уровень Средний \n\n В ответ писать только цифры правильного ответа")
     await callback.message.answer("1 вопрос \n\n Какая функция дабовляет что-то в конец списка \n 1.) .append\n 2.) .pop\n 3.) .ending")
-    await state.set_state(python2.a4)
+    await state.set_state(python2.a)
     await callback.answer()
 
 @router.message(python2.a)
