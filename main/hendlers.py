@@ -96,7 +96,11 @@ async def e(message: Message, state: FSMContext):
     
     await message.answer(f"У вас {count_math1}/5 <b>правильных</b> ответов.", parse_mode="HTML")
     
-    await create_answer(answer_math1=count_math1, message.from_user.id)
+    await create_answer(
+    answer_math1=count_math1,
+    user_id=message.from_user.id
+)
+
     await state.clear()
 
 
@@ -167,7 +171,11 @@ async def e1(message: Message, state: FSMContext):
     
     await message.answer(f"У вас {count_math2}/5 <b>правильных</b> ответов.", parse_mode="HTML")
     
-    await create_answer(answer_math2=count_math2, message.from_user.id)
+    await create_answer(
+    answer_math1=count_math1,
+    user_id=message.from_user.id
+)
+
     await state.clear()
 
 
@@ -238,5 +246,9 @@ async def e2(message: Message, state: FSMContext):
     
     await message.answer(f"У вас {count_math3}/5 <b>правильных</b> ответов.", parse_mode="HTML")
     
-    await create_answer(answer_math3=count_math3, message.from_user.id)
+    await create_answer(
+    answer_math1=count_math1,
+    user_id=message.from_user.id
+)
+
     await state.clear()
