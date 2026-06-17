@@ -13,7 +13,7 @@ two_python_answer = ["1", "2", "3", "3", "1"]
 three_python_answer = ["3", "2", "2", "1", "1"]
 
 @router.message(Command("python"))
-async def python(message:Message):
+async def python(message: Message):
     await message.answer("Выберите уровень сложности", reply_markup=python)
 
 #уровень 1
