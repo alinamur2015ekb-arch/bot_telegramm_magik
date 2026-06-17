@@ -59,7 +59,7 @@ async def game_loop(message: Message, state: FSMContext):
 # Игра 2
 @router.message(Command("mems")) 
 async def memes(message: Message, state: FSMContext):
-    await message.answer("Йоу это викторина по мемчикам")
+    await message.answer("Йоу это викторина по мемчикам, а если хочешь остановить викторину пиши команду /cansel")
     await message.answer("1 вопрос Писать только цифру ответа\nКакая реплика в меме про Галю?\n1.) Галя у нас проблема\n2.) Галя у нас отмена\n3.) Галя у нас возврат")
     await state.update_data({"mems1": None})  
     await state.set_state(mems.mems1)
