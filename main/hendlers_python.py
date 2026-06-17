@@ -12,9 +12,15 @@ one_python_answer = ["1", "3", "3", "2", "1"]
 two_python_answer = ["1", "2", "3", "3", "1"]
 three_python_answer = ["3", "2", "2", "1", "1"]
 
+@eouter.message(Command("cansel_python"))
+async def cansel_python(message: Message):
+    await message.answer("Викторина завершена")
+    await state.clear()
+
+
 @router.message(Command("python"))
 async def python(message: Message):
-    await message.answer("Выберите уровень сложности", reply_markup=python)
+    await message.answer("Это викторина по Python \n\n Если хотите  остановить викторину воспользуйтесь командой /cansel\n\n Выберите уровень сложности", reply_markup=python)
 
 #уровень 1
 @router.callback_query(F.data=="one_python")
