@@ -12,6 +12,10 @@ answers_math1 = ["56", "5", "230", "16", "13"]
 answers_math2 = ["1/5", "10/2", "5/3", "5/4", "6/4"]
 answers_math3 = ["16", "3", "2.5", "15", "3"]
 
+@eouter.message(Command("cansel_math"))
+async def cansel_python(message: Message):
+    await message.answer("Викторина завершена")
+    await state.clear()
 
 @router.message(CommandStart())
 async def start(message: Message):
