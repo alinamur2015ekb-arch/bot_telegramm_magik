@@ -2,7 +2,7 @@ from aiogram import Router, F
 import random
 from aiogram.filters import Command
 from aiogram.types import Message
-from database import create_play
+from database import create_play, create_answer
 from state.state import play, mems
 from aiogram.fsm.context import FSMContext
 from aiogram.types import FSInputFile
