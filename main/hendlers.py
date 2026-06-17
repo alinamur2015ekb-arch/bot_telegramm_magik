@@ -28,7 +28,7 @@ async def start(message: Message):
 
 @router.message(Command("mathematics"))
 async def mathes(message: Message):
-    await message.answer("Выберите уровень сложности", reply_markup=math)
+    await message.answer("Выберите уровень сложности, а если хотите остановить викторину воспользуйтесь командой /cansel", reply_markup=math)
 
 
 # Уровень 1
