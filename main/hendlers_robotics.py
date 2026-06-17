@@ -11,6 +11,10 @@ router = Router()
 one_robotics_answer = ["2", "1", "3"]
 two_robotics_answer = ["2", "1", "2"]
 
+@eouter.message(Command("cansel_python"))
+async def cansel_python(message: Message):
+    await message.answer("Викторина завершена")
+    await state.clear()
 
 @router.message(Command("robotics"))
 async def robotics(message: Message):  
