@@ -27,7 +27,7 @@ load_dotenv()
 token = os.getenv("TOKEN")
 
 dp = Dispatcher()
-dp.include_router(hendlers_router, hendlers_router_robotics, hendlers_router_python, my_command_router, play1_router, play2_router)
+dp.include_routers(hendlers_router, hendlers_router_robotics, hendlers_router_python, my_command_router, play1_router, play2_router)
 
 async def main():
     bot = Bot(token)
