@@ -10,6 +10,10 @@ from aiogram.types import FSInputFile
 router = Router()
 answers_memes = ["2", "3", "1", "3", "2"]
 
+@eouter.message(Command("cansel_mems"))
+async def cansel_python(message: Message):
+    await message.answer("Викторина завершена")
+    await state.clear()
 
 @router.message(Command("random"))
 async def random_game(message: Message, state: FSMContext):  
