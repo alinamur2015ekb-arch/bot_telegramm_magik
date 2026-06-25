@@ -28,8 +28,12 @@ async def random_game(message: Message, state: FSMContext):
 
 
 # Игра 1
-@router.message(play.random)
+@router.message(play.random, F.text)
 async def game_loop(message: Message, state: FSMContext):
+    if message.text.startswith('/'):
+        await state.clear()
+        return 
+
     if not message.text.isdigit():
         await message.answer("Введи именно число от 1 до 10")
         return
@@ -42,7 +46,7 @@ async def game_loop(message: Message, state: FSMContext):
 
     if user_number == number:
         await message.answer(f"ПОЗДРАВЛЯЮ! Ты угадала число {number} с {count} попытки!")
-        await create_play(random=count)  
+        await create_play(user_id=message.from_user.id, random=count)  
         await state.clear() 
     else:
         count += 1
@@ -54,7 +58,6 @@ async def game_loop(message: Message, state: FSMContext):
         else:
             await message.answer(f"Вы проиграли! Попытки закончились. Было загадано число {number}.\nСыграть заново: /random")
             await state.clear()
-
 
 # Игра 2
 @router.message(Command("mems")) 
