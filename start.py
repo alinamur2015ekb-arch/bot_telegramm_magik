@@ -13,7 +13,8 @@ from main.my_command import router as my_command_router
 from main.play1 import router as play1_router
 from main.play2 import router as play2_router
 from database import init_answer, init_play  
-
+import signal
+import sys
 
 class HealthHandler(BaseHTTPRequestHandler):
     def do_GET(self):
@@ -69,6 +70,10 @@ dp.include_routers(
 
 async def main():
     bot = Bot(token)
+    
+    await bot.delete_webhook(drop_pending_updates=True)
+    print("Вебхук удален, режим polling активирован.")
+
     print("Инициализация таблиц базы данных...")
     await init_answer() 
     await init_play()   
@@ -79,6 +84,7 @@ async def main():
     print("Бот успешно запущен, пингер работает!")
     await dp.start_polling(bot)
 
+
 if __name__ == "__main__":
     threading.Thread(target=run_health_server, daemon=True).start()
     
@@ -87,3 +93,8 @@ if __name__ == "__main__":
         asyncio.run(main())
     except (KeyboardInterrupt, SystemExit):
         print("Бот остановлен!")
+
+def handle_sigterm(signum, frame):
+    print("Получен сигнал завершения (SIGTERM). Остановка...")
+    sys.exit(0)
+signal.signal(signal.SIGTERM, handle_sigterm)
