@@ -2,6 +2,11 @@ import asyncio
 import os
 import signal
 import sys
+import threading
+import time
+from http.server import BaseHTTPRequestHandler, HTTPServer
+from contextlib import suppress
+import aiohttp
 from aiogram import Bot, Dispatcher
 from dotenv import load_dotenv
 from main.hendlers import router as hendlers_router
@@ -27,6 +32,41 @@ dp.include_routers(
     play2_router,
 )
 
+class HealthHandler(BaseHTTPRequestHandler):
+    def do_GET(self):
+        if self.path == '/':
+            self.send_response(200)
+            self.send_header('Content-type', 'text/plain')
+            self.end_headers()
+            self.wfile.write(b'OK')
+        else:
+            self.send_response(404)
+            self.send_header('Content-type', 'text/plain')
+            self.end_headers()
+            self.wfile.write(b'Not Found')
+
+    def log_message(self, format, *args):
+        # Чтобы не засорять логи Render
+        pass
+
+def run_health_server():
+    port = int(os.environ.get('PORT', 8000))
+    server_address = ('0.0.0.0', port)
+    httpd = HTTPServer(server_address, HealthHandler)
+    httpd.serve_forever()
+
+async def pinger():
+    """Пингует сам себя, чтобы Render не «усыплял» сервис"""
+    await asyncio.sleep(10)
+    async with aiohttp.ClientSession() as session:
+        while True:
+            try:
+                url = os.environ.get('RENDER_EXTERNAL_URL', 'https://telegramm-bot-rpin.onrender.com')
+                async with session.get(url) as response:
+                    print(f"Пинг выполнен! Статус: {response.status}")
+            except Exception as e:
+                print(f"Ошибка пинга: {e}")
+            await asyncio.sleep(600)  
 async def main():
     bot = Bot(token)
     
@@ -38,8 +78,15 @@ async def main():
     await init_play()   
     print("Все таблицы успешно созданы и готовы к работе!")
     
-    print("Бот успешно запущен!")
-    await dp.start_polling(bot)
+    asyncio.create_task(pinger())
+    
+    print("Бот успешно запущен, пингер работает!")
+    try:
+        await dp.start_polling(bot)
+    finally:
+        # Корректное закрытие при остановке
+        await dp.storage.close()
+        await bot.session.close()
 
 def handle_sigterm(signum, frame):
     print("Получен сигнал завершения (SIGTERM). Остановка...")
@@ -47,7 +94,11 @@ def handle_sigterm(signum, frame):
 
 if __name__ == "__main__":
     signal.signal(signal.SIGTERM, handle_sigterm)
+    
+    threading.Thread(target=run_health_server, daemon=True).start()
+    time.sleep(1)  # Даём серверу время запуститься
+    
     try:
         asyncio.run(main())
     except (KeyboardInterrupt, SystemExit):
-        print("Бот остановлен!")
+        print("Бот остановлен пользователем!")
