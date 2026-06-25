@@ -28,7 +28,7 @@ async def random_game(message: Message, state: FSMContext):
 
 
 # Игра 1
-@router.message(play.random, F.text)
+@router.message(play.random)
 async def game_loop(message: Message, state: FSMContext):
     if not message.text.isdigit():
         await message.answer("Введи именно число от 1 до 10")
