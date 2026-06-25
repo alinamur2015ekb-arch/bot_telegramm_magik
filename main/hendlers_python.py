@@ -12,7 +12,7 @@ one_python_answer = ["1", "3", "3", "2", "1"]
 two_python_answer = ["1", "2", "3", "3", "1"]
 three_python_answer = ["3", "2", "2", "1", "1"]
 
-@eouter.message(Command("cansel_python"))
+@router.message(Command("cansel_python"))
 async def cansel_python(message: Message):
     await message.answer("Викторина завершена")
     await state.clear()
