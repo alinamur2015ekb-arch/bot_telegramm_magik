@@ -42,7 +42,7 @@ async def game_loop(message: Message, state: FSMContext):
 
     if user_number == number:
         await message.answer(f"ПОЗДРАВЛЯЮ! Ты угадала число {number} с {count} попытки!")
-        await create_play(random=count)  
+        async def create_play(random=count)  
         await state.clear() 
     else:
         count += 1
