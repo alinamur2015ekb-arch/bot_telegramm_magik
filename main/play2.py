@@ -138,7 +138,7 @@ async def player_a2(callback: CallbackQuery):
 @router.callback_query(F.data == "player_b2")
 async def player_b2(callback: CallbackQuery):
     photo3 = FSInputFile("scary_photos/scary3.jpg")
-    await callback.message.answer_photo(photo3, caption="На следующую ночь вы все пропали\n<b>Конец</b>")
+    await callback.message.answer_photo(photo3, caption="На следующую ночь вы все пропали\n<b>Конец</b>", parse_mode=ParseMode.HTML)
 
 
 @router.callback_query(F.data == "no")
