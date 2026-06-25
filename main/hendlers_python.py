@@ -72,8 +72,8 @@ async def d3(message:Message, state: FSMContext):
                parse_mode="HTML")
 
     await create_answer(
-    answer_math1=count_math1,
-    user_id=message.from_user.id
+        answer_math1=count_python1,
+        user_id=message.from_user.id
 )
 
     await state.clear()
@@ -130,8 +130,8 @@ async def d4(message:Message, state: FSMContext):
                parse_mode="HTML")
 
     await create_answer(
-    answer_math1=count_math1,
-    user_id=message.from_user.id
+        answer_math1=count_python2,
+        user_id=message.from_user.id
 )
 
     await state.clear()
@@ -190,8 +190,8 @@ async def d5(message:Message, state: FSMContext):
 
 
     await create_answer(
-    answer_math1=count_math1,
-    user_id=message.from_user.id
+        answer_math1=count_python2,
+        user_id=message.from_user.id
 )
 
     await state.clear()
