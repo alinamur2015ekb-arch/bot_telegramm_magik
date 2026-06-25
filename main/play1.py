@@ -128,7 +128,7 @@ async def mems5(message: Message, state: FSMContext):
     await message.answer(f"У вас {count_mems}/5 правильных ответов😝")
 
     await create_answer(
-        answer_mems=count_mems,
+        mem=count_mems,
         user_id=message.from_user.id
 )
   
