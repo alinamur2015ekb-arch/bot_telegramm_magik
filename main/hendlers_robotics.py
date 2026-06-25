@@ -85,8 +85,8 @@ async def c6(message: Message, state: FSMContext):
     await message.answer(f"У вас {one_count_robotics}/3 <b>правильных</b> ответов", parse_mode="HTML")
     
     await create_answer(
-    answer_math1=count_math1,
-    user_id=message.from_user.id
+        answer_robotics1=one_count_robotics,
+        user_id=message.from_user.id
 )
 
     await state.clear()
@@ -155,8 +155,8 @@ async def c7(message: Message, state: FSMContext):
     await message.answer(f"У вас {two_count_robotics}/3 <b>правильных</b> ответов", parse_mode="HTML")
     
     await create_answer(
-    answer_math1=count_math1,
-    user_id=message.from_user.id
+        answer_robotics2=two_count_robotics,
+        user_id=message.from_user.id
 )
 
     await state.clear()
