@@ -89,7 +89,7 @@ async def player_a1(callback: CallbackQuery):
         "Затем вдруг позвонил этот номер"
     )
     await callback.message.answer_photo(photo2, caption="📞 кап кап капля крови")
-    await callback.message.answer("<i>Звонок ты ставила на громкую связь</i>\nВсе подумали что это пранк, но ты похолодела\nЛиза предложила лечь спать")
+    await callback.message.answer("<i>Звонок ты ставила на громкую связь</i>\nВсе подумали что это пранк, но ты похолодела\nЛиза предложила лечь спать", parse_mode = ParseMode.HTML)
     await callback.message.answer("Ночью вдруг задергалась ручка от двери")
     await callback.message.answer_photo(photo3, caption="А-А-А-А-А")
     await callback.message.answer(
@@ -131,7 +131,7 @@ async def player_a2(callback: CallbackQuery):
     await callback.message.answer("Лиза - ладно ладно")
     await callback.message.answer(
         "Вы выжили, но Маша пропала и все, даже ты, забыли её\n"
-        "<b>Конец</b>"
+        "<b>Конец</b>", parse_mode = ParseMode.HTML
     )
 
 
