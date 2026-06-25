@@ -2,7 +2,7 @@ from aiogram import Router, F
 import random
 from aiogram.filters import Command
 from aiogram.types import Message
-from database import create_play, create_answer
+from database import create_play
 from state.state import play, mems
 from aiogram.fsm.context import FSMContext
 from aiogram.types import FSInputFile
@@ -127,7 +127,7 @@ async def mems5(message: Message, state: FSMContext):
 
     await message.answer(f"У вас {count_mems}/5 правильных ответов😝")
 
-    await create_answer(
+    await create_play(
         meme=count_mems,
         user_id=message.from_user.id
 )
