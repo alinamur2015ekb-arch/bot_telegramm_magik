@@ -30,19 +30,19 @@ async def my_education(message: Message):
     rob2 = answer_data[8] if answer_data[8] is not None else 0
 
     await message.answer(
-        f"📊 **ТВОЯ УЧЕБА:**\n\n"
-        f"🧠 **Математика:**\n"
+        f"📊</b>ТВОЯ УЧЕБА:</b>\n\n"
+        f" <b>Математика:</b>\n"
         f" ├ 1 уровень: {math1}/5\n"
         f" ├ 2 уровень: {math2}/5\n"
         f" └ 3 уровень: {math3}/5\n\n"
-        f"🐍 **Python:**\n"
+        f"<b>Python:</b>\n"
         f" ├ 1 уровень: {py1}/5\n"
         f" ├ 2 уровень: {py2}/5\n"
         f" └ 3 уровень: {py3}/5\n\n"
-        f"🤖 **Робототехника:**\n"
+        f"<b>Робототехника:</b>\n"
         f" ├ 1 уровень: {rob1}/3\n"
         f" └ 2 уровень: {rob2}/3",
-        parse_mode=ParseMode.MarkdownV2 
+        parse_mode=ParseMode.HTML
     )
 
 
