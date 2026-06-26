@@ -40,7 +40,7 @@ async def one_robotics(callback: CallbackQuery, state: FSMContext):
 @router.message(robotics1.a) 
 async def a6(message: Message, state: FSMContext):  
    
-    await state.set_data({"a": message.text})
+    await state.set_data({"a"= message.text})
     
     await message.answer(
         "2 вопрос: Как называется код в arduino IDE?\n"
@@ -53,7 +53,7 @@ async def a6(message: Message, state: FSMContext):
 
 @router.message(robotics1.b)
 async def b6(message: Message, state: FSMContext):
-    await state.set_data({"b": message.text})
+    await state.set_data({"b"= message.text})
     
     await message.answer(
         "3 вопрос: Какие 2 функции обязательны в коде для arduino IDE?\n"
@@ -66,9 +66,9 @@ async def b6(message: Message, state: FSMContext):
 
 @router.message(robotics1.c)
 async def c6(message: Message, state: FSMContext):
-    await state.set_data({"c": message.text})
+    await state.set_data({"c"= message.text})
     
-    one_count_robotics = 3
+    one_count_robotics = 0
     data = await state.get_data()
     
     a = data.get("a")
@@ -110,7 +110,7 @@ async def two_robotics(callback: CallbackQuery, state: FSMContext):
 
 @router.message(robotics2.a)
 async def a7(message: Message, state: FSMContext):
-    await state.set_data({"a": message.text})
+    await state.set_data({"a"= message.text})
     
     await message.answer(
         "2 вопрос: Как в коде прописать паузу в Arduino IDE?\n"
@@ -123,7 +123,7 @@ async def a7(message: Message, state: FSMContext):
 
 @router.message(robotics2.b)
 async def b7(message: Message, state: FSMContext):
-    await state.set_data({"b": message.text})
+    await state.set_data({"b"= message.text})
     
     await message.answer(
         "3 вопрос: Какое напряжение обычно в плате arduino?\n"
@@ -136,7 +136,7 @@ async def b7(message: Message, state: FSMContext):
 
 @router.message(robotics2.c)
 async def c7(message: Message, state: FSMContext):
-    await state.set_data({"c": message.text})
+    await state.set_data({"c"= message.text})
     
     two_count_robotics = 3
     data = await state.get_data()
