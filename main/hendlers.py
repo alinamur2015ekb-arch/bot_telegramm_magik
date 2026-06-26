@@ -37,6 +37,7 @@ async def one(callback: CallbackQuery, state: FSMContext):
     await callback.message.answer("Викторина по математике уровень легкий")
     await callback.message.answer("<b>1 вопрос</b> \n 8 * 7", parse_mode="HTML")
     await state.set_state(math1.a)
+    await state.update_data(a=message.text)
     await callback.answer()
 
 
@@ -45,13 +46,14 @@ async def a(message: Message, state: FSMContext):
     
     await message.answer("<b>2 вопрос</b> 45/9", parse_mode="HTML")
     await state.set_state(math1.b)
-
+    await state.update_data(и=message.text)
 
 @router.message(math1.b)
 async def b(message: Message, state: FSMContext):
     
     await message.answer("<b>3 вопрос</b> 23 * 10", parse_mode="HTML")
     await state.set_state(math1.c)
+    await state.update_data(с=message.text)
 
 
 @router.message(math1.c)
@@ -66,6 +68,7 @@ async def d(message: Message, state: FSMContext):
     
     await message.answer("<b>5 вопрос</b> 52/4", parse_mode="HTML")
     await state.set_state(math1.e)
+    await state.update_data(e=message.text)
 
 
 @router.message(math1.e)
