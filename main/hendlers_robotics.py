@@ -128,7 +128,7 @@ async def b7(message: Message, state: FSMContext):
 @router.message(robotics2.c)
 async def c7(message: Message, state: FSMContext):
     await state.update_data(c=message.text)
-    two_count_robotics = 3
+    two_count_robotics = 0
     data = await state.get_data()
     
     a = data.get("a")
