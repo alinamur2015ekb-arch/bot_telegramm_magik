@@ -34,6 +34,7 @@ async def one_robotics(callback: CallbackQuery, state: FSMContext):
         "3.) В компиляторе",
         parse_mode="HTML"
     )
+    await state.set_state(math1.a)
     await callback.answer()
 
 @router.message(robotics1.a) 
