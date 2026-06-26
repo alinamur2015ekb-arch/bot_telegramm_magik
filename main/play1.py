@@ -21,9 +21,9 @@ async def random_game(message: Message, state: FSMContext):
     await state.update_data(
         number=number,
         count_number=1,
-        no_count=3 
+        no_count=5 
     )
-    await message.answer("Это игра Угадай число от 1 до 10\nУ тебя есть 3 попытки. Введи число")
+    await message.answer("Это игра Угадай число от 1 до 10\nУ тебя есть 5 попыток. Введи число")
     await state.set_state(play.random)
 
 
