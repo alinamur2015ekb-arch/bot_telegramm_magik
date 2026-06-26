@@ -20,7 +20,7 @@ async def cansel_python(message: Message):
 
 @router.message(Command("python"))
 async def python(message: Message):
-    await message.answer("Это викторина по Python \n\n Если хотите  остановить викторину воспользуйтесь командой /cansel\n\n Выберите уровень сложности", reply_markup=python())
+    await message.answer("Это викторина по Python \n\n Если хотите  остановить викторину воспользуйтесь командой /cansel\n\n Выберите уровень сложности", reply_markup=python)
 
 #уровень 1
 @router.callback_query(F.data=="one_python")
