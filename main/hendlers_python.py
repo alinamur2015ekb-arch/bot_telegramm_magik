@@ -112,7 +112,7 @@ async def d4(message:Message, state: FSMContext):
     await state.set_state(python2.e)
 
 @router.message(python2.e)
-async def e4(message:Message, context: FSMContext
+async def e4(message:Message, context: FSMContext):
     count_python2 = 0
     data3 = await state.get_data()
     
