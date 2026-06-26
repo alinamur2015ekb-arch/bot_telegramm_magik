@@ -18,7 +18,7 @@ cmd_python = InlineKeyboardMarkup(
     ]
 )
 
-robotics = InlineKeyboardMarkup(
+cmd_robotics = InlineKeyboardMarkup(
     inline_keyboard=[
         [InlineKeyboardButton(text="1 уровень - Легкий", callback_data="one_robotics")],
         [InlineKeyboardButton(text="2 уровень - Сложный", callback_data="two_robotics")]
