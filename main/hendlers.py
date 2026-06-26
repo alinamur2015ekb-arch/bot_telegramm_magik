@@ -10,7 +10,7 @@ from aiogram.enums import ParseMode
 router = Router()
 answers_math1 = ["56", "5", "230", "16", "13"]
 answers_math2 = ["1/5", "10/2", "5/3", "5/4", "6/4"]
-answers_math3 = ["16", "3", "2.5", "15", "3"]
+answers_math3 = ["16", "3", "2.5", "5", "3"]
 
 @router.message(Command("cansel_math"))
 async def cansel_python(message: Message):
@@ -189,14 +189,14 @@ async def a2(message: Message, state: FSMContext):
 @router.message(math3.b)
 async def b2(message: Message, state: FSMContext):
     await state.update_data(b=message.text)
-    await message.answer("<b>3 вопрос</b> Найди корень из 6.25", parse_mode="HTML")
+    await message.answer("<b>3 вопрос</b> Найди корень из 4.25", parse_mode="HTML")
     await state.set_state(math3.c)
 
 
 @router.message(math3.c)
 async def c2(message: Message, state: FSMContext):
     await state.update_data(c=message.text)
-    await message.answer("<b>4 вопрос</b> Запишите дробь которому равняется x - 3/10 = 2", parse_mode="HTML")
+    await message.answer("<b>4 вопрос</b> Запишите дробь которому равняется x/10 - 3/10 = 2", parse_mode="HTML")
     await state.set_state(math3.d)
 
 
