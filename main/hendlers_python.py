@@ -1,7 +1,7 @@
 from aiogram import F, Router
 from aiogram.filters import Command
 from aiogram.types import Message, CallbackQuery
-from .keyboard import python
+from .keyboard import cmd_python
 from aiogram.fsm.context import FSMContext
 from state.state import python1, python2, python3
 from database import create_answer
@@ -20,7 +20,7 @@ async def cansel_python(message: Message):
 
 @router.message(Command("python"))
 async def python(message: Message):
-    await message.answer("Это викторина по Python \n\n Если хотите  остановить викторину воспользуйтесь командой /cansel\n\n Выберите уровень сложности", reply_markup=python)
+    await message.answer("Это викторина по Python \n\n Если хотите  остановить викторину воспользуйтесь командой /cansel\n\n Выберите уровень сложности", reply_markup=cmd_python)
 
 #уровень 1
 @router.callback_query(F.data=="one_python")
