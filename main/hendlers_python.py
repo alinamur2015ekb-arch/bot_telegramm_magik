@@ -32,26 +32,31 @@ async def one_python(callback: CallbackQuery, state: FSMContext):
 
 @router.message(python1.a)
 async def a3(message:Message, state: FSMContext):
+    await state.update_data(a=message.text)
     await message.answer("2 вопрос \n\n Какая функция запрашивает данные \n 1.) print()\n 2.) request()\n3.) input()")
     await state.set_state(python1.b)
 
 @router.message(python1.b)
 async def b3(message:Message, state: FSMContext):
+    await state.update_data(b=message.text)
     await message.answer("3 вопрос \n\n Какая функция может выводить что то бесконечное количество \n 1.)for \n 2.)infinity \n3.) while")
     await state.set_state(python1.c)
 
 @router.message(python1.c)
 async def c3(message:Message, state: FSMContext):
+    await state.update_data(c=message.text)
     await message.answer("4 вопрос \n\n Какая функция может что-то выводить определеное количество раз \n 1.) while\n 2.) for\n3.) infinity")
     await state.set_state(python1.d)
 
 @router.message(python1.d)
 async def d3(message:Message, state: FSMContext):
+    await state.update_data(d=message.text)
     await message.answer("5 вопрос \n\n  Какая функция рандомно что-то генерирует\n 1.) randing\n 2.) random\n3.) rand ")
     await state.set_state(python1.e)
     
 @router.message(python1.e)
 async def e2(message:Message, state:FSMContext):
+    await state.update_data(e=message.text)
     count_python1 = 0
     data3 = await state.get_data()
     
@@ -89,35 +94,36 @@ async def two_python(callback: CallbackQuery, state: FSMContext):
     await callback.message.answer("Python уровень Средний \n\n В ответ писать только цифры правильного ответа")
     await callback.message.answer("1 вопрос \n\n Какая функция дабовляет что-то в конец списка \n 1.) .append\n 2.) .pop\n 3.) .ending")
     await state.set_state(python2.a)
-    await state.set_data(a = message.text)
     await callback.answer()
 
 @router.message(python2.a)
 async def a4(message:Message, state: FSMContext):
+    await state.update_data(a=message.text)
     await message.answer("2 вопрос \n\n Какая функция делает так чтобы в for что то выводилось несколько раз\n 1.) several\n 2.) range\n3.) once")
     await state.set_state(python2.b)
     await state.set_data(b = message.text)
 
 @router.message(python2.b)
 async def b4(message:Message, state: FSMContext):
+    await state.update_data(b=message.text)
     await message.answer("3 вопрос \n\n Как сделать так чтобы цикл while был бесконечным \n 1.)while False \n 2.)while infinite\n3.) while True")
     await state.set_state(python2.c)
-    await state.set_data(c = message.text)
 
 @router.message(python2.c)
 async def c4(message:Message, state: FSMContext):
+    await state.update_data(c=message.text)
     await message.answer("4 вопрос \n\n Чем отличается кортеж от списка \n 1.) В нем () скобки\n 2.) В нем {} скобки\n3.) Он не изменяется")
     await state.set_state(python2.d)
-    await state.set_data(d = message.text)
-
+    
 @router.message(python2.d)
 async def d4(message:Message, state: FSMContext):
+    await state.update_data(d=message.text)
     await message.answer("5 вопрос \n\n Какая функция что то рандомно выбирает \n 1.) randint\n 2.) random\n3.) rand")
     await state.set_state(python2.e)
-    await state.set_data( e= message.text)
 
 @router.message(python2.e)
 async def e4(message:Message, context: FSMContext):
+    await state.update_data(e=message.text)
     count_python2 = 0
     data3 = await state.get_data()
     
@@ -154,37 +160,37 @@ async def three_python(callback: CallbackQuery,  state: FSMContext):
     await callback.message.answer("Python уровень Сложный \n\n В ответ писать только цифры правильного ответа")
     await callback.message.answer("1 вопрос \n\n Как создать функцию \n 1.) funcio \n 2.) funkcion \n 3.) def")
     await state.set_state(python3.a)
-    await state.set_data(a = message.text)
     await callback.answer()
 
 @router.message(python3.a)
 async def a5(message:Message, state: FSMContext):
+    await state.update_data(a=message.text)
     await message.answer("2 вопрос \n\n Как в списке отсортировать элементы \n 1.) sert\n 2.) sort\n3.) sorting")
     await state.set_state(python3.b)
-    await state.set_data(b = message.text)
 
 
 @router.message(python3.b)
 async def b5(message:Message, state: FSMContext):
+    await state.update_data(b=message.text)
     await message.answer("3 вопрос \n\n Как объявить класс \n 1.)objekt \n 2.)class \n3.) close")
     await state.set_state(python3.c)
-    await state.set_data(c = message.text)
-
 
 @router.message(python3.c)
 async def c5(message:Message, state: FSMContext):
+    await state.update_data(c=message.text)
     await message.answer("4 вопрос \n\n Как вытощить что-то из списка \n 1.) По индексу\n 2.) По ключу\n3.) По значению")
     await state.set_state(python3.d)
-    await state.set_data(d = message.text)
+
 
 @router.message(python3.d)
 async def d5(message:Message, state: FSMContext):
+    await state.update_data(d=message.text)
     await message.answer("5 вопрос \n\n Какой командой что-то установить \n 1.) pip \n2.)establish \n3.) installation")
     await state.set_state(python3.e)
-    await state.set_data(e = message.text)
 
 @router.message(python3.e)
 async def e5(message:Message, state:FSMContext):
+    await state.update_data(e=message.text)
     count_python3 = 0
     data5 = await state.get_data()
     
