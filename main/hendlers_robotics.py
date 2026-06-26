@@ -69,11 +69,11 @@ async def c6(message: Message, state: FSMContext):
     b = data.get("b")
     c = data.get("c")
     
-    if a and a.strip() == "2":
+    if a and a.strip() == one_robotics_answer[0]:
         one_count_robotics += 1
-    if b and b.strip() == "1":
+    if b and b.strip() == one_robotics_answer[1]:
         one_count_robotics += 1
-    if c and c.strip() == "3":
+    if c and c.strip() == one_robotics_answer[2]:
         one_count_robotics += 1
     
     await message.answer(f"У вас {one_count_robotics}/3 <b>правильных</b> ответов", parse_mode="HTML")
