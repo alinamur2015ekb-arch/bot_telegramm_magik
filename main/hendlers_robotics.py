@@ -68,7 +68,7 @@ async def b6(message: Message, state: FSMContext):
 async def c6(message: Message, state: FSMContext):
     await state.set_data({"c": message.text})
     
-    one_count_robotics = 0
+    one_count_robotics = 3
     data = await state.get_data()
     
     a = data.get("a")
@@ -138,7 +138,7 @@ async def b7(message: Message, state: FSMContext):
 async def c7(message: Message, state: FSMContext):
     await state.set_data({"c": message.text})
     
-    two_count_robotics = 0
+    two_count_robotics = 3
     data = await state.get_data()
     
     a = data.get("a")
