@@ -35,7 +35,7 @@ async def one_robotics(callback: CallbackQuery, state: FSMContext):
     )
     await state.set_state(robotics1.a)
     await callback.answer()
-
+    await state.update_data(a=message.text)
 
 @router.message(robotics1.a) 
 async def a6(message: Message, state: FSMContext):  
@@ -46,7 +46,7 @@ async def a6(message: Message, state: FSMContext):
         "3.) Arduino"
     )
     await state.set_state(robotics1.b)
-
+    await state.update_data(b=message.text)
 
 @router.message(robotics1.b)
 async def b6(message: Message, state: FSMContext):
@@ -58,7 +58,7 @@ async def b6(message: Message, state: FSMContext):
         "3.) setup(), loop()"
     )
     await state.set_state(robotics1.c)
-
+    await state.update_data(c=message.text)
 
 @router.message(robotics1.c)
 async def c6(message: Message, state: FSMContext):
