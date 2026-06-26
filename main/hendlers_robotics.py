@@ -1,6 +1,6 @@
 from aiogram import Router, F
 from aiogram.types import Message, CallbackQuery
-from .keyboard import robotics
+from .keyboard import cmd_robotics
 from aiogram.filters import Command
 from aiogram.fsm.context import FSMContext
 from state.state import robotics1, robotics2
@@ -19,7 +19,7 @@ async def cansel_python(message: Message):
 @router.message(Command("robotics"))
 async def robotics(message: Message):  
     await message.answer("Выберите уровень сложности, а если хотите остановить викторину воспользуйтесь командой /cansel",
-                         reply_markup=robotics)
+                         reply_markup=cmd_robotics)
 
 
 # 1 уровень
