@@ -28,33 +28,28 @@ async def one_python(callback: CallbackQuery, state: FSMContext):
     await callback.message.answer("Python уровень Легкий \n\n В ответ писать только цифры правильного ответа")
     await callback.message.answer("1 вопрос \n\n Какая функция выводит текст в консоль \n 1.) print()\n 2.) input() \n 3.) log()")
     await state.set_state(python1.a)
-    await state.set_data({"a"= message.text})
     await callback.answer()
 
 @router.message(python1.a)
 async def a3(message:Message, state: FSMContext):
     await message.answer("2 вопрос \n\n Какая функция запрашивает данные \n 1.) print()\n 2.) request()\n3.) input()")
     await state.set_state(python1.b)
-    await state.set_data({"b"= message.text})
 
 @router.message(python1.b)
 async def b3(message:Message, state: FSMContext):
     await message.answer("3 вопрос \n\n Какая функция может выводить что то бесконечное количество \n 1.)for \n 2.)infinity \n3.) while")
     await state.set_state(python1.c)
-    await state.set_data({"c"= message.text})
 
 @router.message(python1.c)
 async def c3(message:Message, state: FSMContext):
     await message.answer("4 вопрос \n\n Какая функция может что-то выводить определеное количество раз \n 1.) while\n 2.) for\n3.) infinity")
     await state.set_state(python1.d)
-    await state.set_data({"d"= message.text})
 
 @router.message(python1.d)
 async def d3(message:Message, state: FSMContext):
     await message.answer("5 вопрос \n\n  Какая функция рандомно что-то генерирует\n 1.) randing\n 2.) random\n3.) rand ")
     await state.set_state(python1.e)
-    await state.set_data({"e"= message.text})
-
+    
 @router.message(python1.e)
 async def e2(message:Message, state:FSMContext):
     count_python1 = 0
