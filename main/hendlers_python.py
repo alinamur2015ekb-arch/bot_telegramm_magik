@@ -49,6 +49,9 @@ async def c3(message:Message, state: FSMContext):
 async def d3(message:Message, state: FSMContext):
     await message.answer("5 вопрос \n\n  Какая функция рандомно что-то генерирует\n 1.) randing\n 2.) random\n3.) rand ")
     await state.set_state(python1.e)
+
+@router.message(python1.e)
+async def e2(message:Message, state:FSMContext):
     count_python1 = 0
     data3 = await state.get_data()
     
@@ -107,6 +110,9 @@ async def c4(message:Message, state: FSMContext):
 async def d4(message:Message, state: FSMContext):
     await message.answer("5 вопрос \n\n Какая функция что то рандомно выбирает \n 1.) randint\n 2.) random\n3.) rand")
     await state.set_state(python2.e)
+
+@router.message(python2.e)
+async def e4(message:Message, context: FSMContext
     count_python2 = 0
     data3 = await state.get_data()
     
@@ -166,6 +172,9 @@ async def c5(message:Message, state: FSMContext):
 async def d5(message:Message, state: FSMContext):
     await message.answer("5 вопрос \n\n Какой командой что-то установить \n 1.) pip \n2.)establish \n3.) installation")
     await state.set_state(python3.e)
+
+@router.message(python3.e)
+async def e5(message:Message, state:FSMContext):
     count_python3 = 0
     data5 = await state.get_data()
     
