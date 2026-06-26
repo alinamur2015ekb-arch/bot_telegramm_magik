@@ -111,7 +111,7 @@ async def player_b1(callback: CallbackQuery):
         "Через 5 минут"
     )
     await callback.message.answer_photo(photo2, caption="📞 кап кап капля крови")
-    await callback.message.answer("<i>Звонок Маша поставила на громкую связь</i>\nВсе подумали что это пранк, но ты похолодела\nЛиза предложила лечь спать")
+    await callback.message.answer("<i>Звонок Маша поставила на громкую связь</i>\nВсе подумали что это пранк, но ты похолодела\nЛиза предложила лечь спать", parse_mode = ParseMode.HTML)
     await callback.message.answer("Ночью вдруг задергалась ручка от двери")
     await callback.message.answer_photo(photo3, caption="А-А-А-А-А")
     await callback.message.answer(
