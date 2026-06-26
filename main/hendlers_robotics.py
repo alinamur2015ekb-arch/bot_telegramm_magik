@@ -25,6 +25,7 @@ async def robotics(message: Message):
 # 1 уровень
 @router.callback_query(F.data == "one_robotics")
 async def one_robotics(callback: CallbackQuery, state: FSMContext): 
+    
     await callback.message.answer(
         "Робототехника на arduino. <b>Уровень Легкий.</b> Писать только номер ответа\n\n"
         "1 вопрос: Где пишется код для arduino?\n"
@@ -33,12 +34,11 @@ async def one_robotics(callback: CallbackQuery, state: FSMContext):
         "3.) В компиляторе",
         parse_mode="HTML"
     )
-    await state.set_state(robotics1.a)
     await callback.answer()
-    await state.update_data(a=message.text)
 
 @router.message(robotics1.a) 
-async def a6(message: Message, state: FSMContext):  
+async def a6(message: Message, state: FSMContext):
+    await state.update_data(a=message.text)
     await message.answer(
         "2 вопрос: Как называется код в arduino IDE?\n"
         "1.) Скетч\n"
@@ -46,11 +46,10 @@ async def a6(message: Message, state: FSMContext):
         "3.) Arduino"
     )
     await state.set_state(robotics1.b)
-    await state.update_data(b=message.text)
 
 @router.message(robotics1.b)
 async def b6(message: Message, state: FSMContext):
-    
+    await state.update_data(b=message.text)
     await message.answer(
         "3 вопрос: Какие 2 функции обязательны в коде для arduino IDE?\n"
         "1.) vood(), loop()\n"
@@ -58,10 +57,10 @@ async def b6(message: Message, state: FSMContext):
         "3.) setup(), loop()"
     )
     await state.set_state(robotics1.c)
-    await state.update_data(c=message.text)
 
 @router.message(robotics1.c)
 async def c6(message: Message, state: FSMContext):
+    await state.update_data(с=message.text)
     one_count_robotics = 0
     data = await state.get_data()
     
@@ -104,7 +103,7 @@ async def two_robotics(callback: CallbackQuery, state: FSMContext):
 
 @router.message(robotics2.a)
 async def a7(message: Message, state: FSMContext):
-    
+    await state.update_data(a=message.text)
     await message.answer(
         "2 вопрос: Как в коде прописать паузу в Arduino IDE?\n"
         "1.) delay\n"
@@ -116,7 +115,7 @@ async def a7(message: Message, state: FSMContext):
 
 @router.message(robotics2.b)
 async def b7(message: Message, state: FSMContext):
-    
+    await state.update_data(b=message.text)
     await message.answer(
         "3 вопрос: Какое напряжение обычно в плате arduino?\n"
         "1.) 13V\n"
@@ -128,7 +127,7 @@ async def b7(message: Message, state: FSMContext):
 
 @router.message(robotics2.c)
 async def c7(message: Message, state: FSMContext):
-    
+    await state.update_data(c=message.text)
     two_count_robotics = 3
     data = await state.get_data()
     
