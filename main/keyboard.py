@@ -8,6 +8,7 @@ math = InlineKeyboardMarkup(
         [InlineKeyboardButton(text="3 уровень Сложный", callback_data="three_math")]
     ]
 )
+math = math.as_markup()
 
 
 python = InlineKeyboardMarkup(
@@ -17,6 +18,7 @@ python = InlineKeyboardMarkup(
         [InlineKeyboardButton(text="3 уровень - Сложный", callback_data="three_python")]
     ]
 )
+python = python.as_markup()
 
 
 robotics = InlineKeyboardMarkup(
@@ -25,7 +27,7 @@ robotics = InlineKeyboardMarkup(
         [InlineKeyboardButton(text="2 уровень - Сложный", callback_data="two_robotics")]
     ]
 )
-
+robotics = robotics.as_markup()
 
 quest = InlineKeyboardMarkup(
     inline_keyboard=[
@@ -36,6 +38,7 @@ quest = InlineKeyboardMarkup(
         ]
     ]
 )
+quest = quest.as_markup()
 
 
 choice = InlineKeyboardMarkup(
@@ -44,6 +47,7 @@ choice = InlineKeyboardMarkup(
         [InlineKeyboardButton(text="Отказаться", callback_data="no")]
     ]
 )
+choice = choice.as_markup()
 
 
 a = InlineKeyboardMarkup(
@@ -54,6 +58,7 @@ a = InlineKeyboardMarkup(
         ]
     ]
 )
+a = a.as_markup()
 
 
 b = InlineKeyboardMarkup(
@@ -64,3 +69,4 @@ b = InlineKeyboardMarkup(
         ]
     ]
 )
+b = b.as_markup()
